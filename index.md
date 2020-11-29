@@ -218,3 +218,37 @@ ___
             }>;
         }>
 * ##### Restricții: _niciuna_
+
+
+### `GET` *{url}/api/account/general*
+* ##### Request: _(empty)_
+* ##### Response:
+        {
+            success: boolean = true;
+            firstName: string;
+            lastName: string;
+            gender: number;
+            phone: string;
+            birthday: string;
+            avatar: string;
+         }
+* ##### Restricții: authenticated
+
+
+### `POST` *{url}/api/account/general*
+* ##### Request:
+    * **firstName:** required
+    * **lastName:** required
+    * **gender:** required, in(1, 2)
+    * **phone:** required, numeric
+    * **birthday:** required, date
+* ##### Response:
+   * **success:** (boolean)
+   * **errrors**: (array)
+      * **firstName:** (array of strings) Can be "required".
+      * **lastName:** (array of strings) Can be "required".
+      * **gender:** (array of strings) Can be either "required" or "invalid".
+      * **phone:** (array of strings) Can be either "required" or "phone".
+      * **birthday:** (array of strings) Can be either "required" or "date".
+   * **newToken:** (string) New JWT token; Present only if `success == true`
+* ##### Restricții: authenticated

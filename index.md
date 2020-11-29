@@ -145,7 +145,6 @@ ___
 ### `GET` *{url}/api/products*
 * ##### Request: _(empty)_
 * ##### Response:
-        ```
         Array<{
             id: number;
             seller: string;
@@ -166,14 +165,12 @@ ___
                 value: any;
             }>;
         }>
-        ```
 * ##### Restricții: _niciuna_
 
 
 ### `GET` *{url}/api/products/:slug*
 * ##### Request: _(empty)_
 * ##### Response:
-        ```
         {
             id: number;
             seller: string;
@@ -194,14 +191,12 @@ ___
                 value: any;
             }>;
         }|null
-        ```
 * ##### Restricții: _niciuna_
 
 
 ### `GET` *{url}/api/products/:slug/related*
 * ##### Request: _(empty)_
 * ##### Response:
-        ```
         Array<{
             id: number;
             seller: string;
@@ -222,5 +217,4 @@ ___
                 value: any;
             }>;
         }>
-        ```
 * ##### Restricții: _niciuna_

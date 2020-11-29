@@ -168,3 +168,31 @@ ___
         }>
         ```
 * ##### Restricții: _niciuna_
+
+
+### `GET` *{url}/api/products/:slug*
+* ##### Request: _(empty)_
+* ##### Response:
+        ```
+        {
+            id: number;
+            seller: string;
+            categoryName: string;
+            categorySlug: string;
+            slug: string;
+            name: string;
+            longName: string;
+            smallDescription: string;
+            description: string;
+            price: number;
+            rating: number;
+            image: string;
+            images: Array<string>;
+            attributes: Array<{
+                name: string;
+                type: 0 (text) / 1 (number) / 2 (boolean) / 3 (colour) / 4 (size);
+                value: any;
+            }>;
+        }|null
+        ```
+* ##### Restricții: _niciuna_

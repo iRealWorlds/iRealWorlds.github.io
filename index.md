@@ -264,3 +264,16 @@ ___
       * **currentPassword:** (array of strings) Can be "required" or "password".
       * **newPassword:** (array of strings) Can be "required".
 * ##### Restricții: authenticated
+
+
+### `GET` *{url}/account/personal*
+* ##### Request: _(empty)_
+* ##### Response:
+   * **firstName:** (string)
+   * **lastName:** (string)
+   * **email:** (string)
+   * **emailVerifiedAt:** (string|null)
+   * **createdAt:** (string|null)
+   * **updatedAt:** (string|null)
+   * **avatar:** (string)
+* ##### Restricții: authenticated

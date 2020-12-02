@@ -296,3 +296,15 @@ ___
    * **newAvatarUrl**: (string) new avatar URL for this user.
    * **newToken**: (string) new JWT token generated for this user
 * ##### Restricții: authenticated
+
+
+### `POST` *{url}/account/avatar*
+* ##### Request:
+    * **file:** required & file
+* ##### Response:
+   * **success:** (boolean)
+   * **errrors**: (array)
+      * **file:** (array of strings) Can be "required" or "file".
+   * **newAvatarUrl**: (string) new avatar URL for this user. _Present only if success is true!_
+   * **newToken**: (string) new JWT token generated for this user. _Present only if success is true!_
+* ##### Restricții: authenticated

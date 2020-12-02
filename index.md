@@ -287,3 +287,12 @@ ___
    * **errrors**: (array)
       * **email:** (array of strings) Can be "email_wrong".
 * ##### Restricții: authenticated
+
+
+### `DELETE` *{url}/account/avatar*
+* ##### Request: _(empty)_
+* ##### Response:
+   * **success:** (boolean) always true
+   * **newAvatarUrl**: (string) new avatar URL for this user.
+   * **newToken**: (string) new JWT token generated for this user
+* ##### Restricții: authenticated

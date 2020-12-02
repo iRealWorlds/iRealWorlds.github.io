@@ -5,7 +5,7 @@
 2. For endpoints with the method `GET`, the **request** is passed in the form of URL parameters.
 ___
 
-### `POST` *{url}/api/login*
+### `POST` *{url}/login*
 * ##### Request:
     * **email:** required & exists is _users_, column _email_
     * **password:** required
@@ -18,7 +18,7 @@ ___
 * ##### Restricții: _niciuna_
 
 
-### `POST` *{url}/api/login*
+### `POST` *{url}/login*
 * ##### Request:
     * **firstName:** required
     * **lastName:** required
@@ -35,7 +35,7 @@ ___
 * ##### Restricții: _niciuna_
 
 
-### `POST` *{url}/api/forgot*
+### `POST` *{url}/forgot*
 * ##### Request:
     * **email:** required & exists is _users_, column _email_
 * ##### Response:
@@ -45,7 +45,7 @@ ___
 * ##### Restricții: _niciuna_
 
 
-### `POST` *{url}/api/forgot/validate*
+### `POST` *{url}/forgot/validate*
 * ##### Request:
     * **email:** required & exists is _users_, column _email_ & exists is _password_resets_, column _email_
     * **token:** required
@@ -57,7 +57,7 @@ ___
 * ##### Restricții: _niciuna_
 
 
-### `POST` *{url}/api/reset*
+### `POST` *{url/reset*
 * ##### Request:
     * **email:** required & exists is _users_, column _email_ & exists is _password_resets_, column _email_
     * **token:** required
@@ -71,7 +71,7 @@ ___
 * ##### Restricții: _niciuna_
 
 
-### `GET` *{url}/api/data/counties*
+### `GET` *{url}/data/counties*
 * ##### Request:
     * **country:** (momentan merge doar penru "ro")
 * ##### Response: 
@@ -79,7 +79,7 @@ ___
 * ##### Restricții: _niciuna_
 
 
-### `GET` *{url}/api/categories*
+### `GET` *{url}/categories*
 * ##### Request: _(empty)_
 * ##### Response:
     ```
@@ -96,7 +96,7 @@ ___
 * ##### Restricții: _niciuna_
 
 
-### `GET` *{url}/api/categories/:slug*
+### `GET` *{url}/categories/:slug*
 * ##### Request: _(empty)_
 * ##### Response:
     ```
@@ -111,7 +111,7 @@ ___
 * ##### Restricții: _niciuna_
 
 
-### `GET` *{url}/api/categories/:slug/products*
+### `GET` *{url}/categories/:slug/products*
 * ##### Request:
     * **page:** not required;
 * ##### Response:
@@ -142,7 +142,7 @@ ___
 * ##### Restricții: _niciuna_
 
 
-### `GET` *{url}/api/products*
+### `GET` *{url}/products*
 * ##### Request: _(empty)_
 * ##### Response:
         Array<{
@@ -168,7 +168,7 @@ ___
 * ##### Restricții: _niciuna_
 
 
-### `GET` *{url}/api/products/:slug*
+### `GET` *{url}/products/:slug*
 * ##### Request: _(empty)_
 * ##### Response:
         {
@@ -194,7 +194,7 @@ ___
 * ##### Restricții: _niciuna_
 
 
-### `GET` *{url}/api/products/:slug/related*
+### `GET` *{url}/products/:slug/related*
 * ##### Request: _(empty)_
 * ##### Response:
         Array<{
@@ -220,7 +220,7 @@ ___
 * ##### Restricții: _niciuna_
 
 
-### `GET` *{url}/api/account/general*
+### `GET` *{url}/account/general*
 * ##### Request: _(empty)_
 * ##### Response:
         {
@@ -235,7 +235,7 @@ ___
 * ##### Restricții: authenticated
 
 
-### `POST` *{url}/api/account/general*
+### `POST` *{url}/account/general*
 * ##### Request:
     * **firstName:** required
     * **lastName:** required

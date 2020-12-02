@@ -252,3 +252,15 @@ ___
       * **birthday:** (array of strings) Can be either "required" or "date".
    * **newToken:** (string) New JWT token; Present only if `success == true`
 * ##### Restricții: authenticated
+
+
+### `POST` *{url}/account/password*
+* ##### Request:
+    * **currentPassword:** required & the password of the current user
+    * **newPassword:** required
+* ##### Response:
+   * **success:** (boolean)
+   * **errrors**: (array)
+      * **currentPassword:** (array of strings) Can be "required" or "password".
+      * **newPassword:** (array of strings) Can be "required".
+* ##### Restricții: authenticated

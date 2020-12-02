@@ -277,3 +277,13 @@ ___
    * **updatedAt:** (string|null)
    * **avatar:** (string)
 * ##### Restricții: authenticated
+
+
+### `POST` *{url}/account/delete*
+* ##### Request:
+    * **email:** required & the e-mail of the current user
+* ##### Response:
+   * **success:** (boolean)
+   * **errrors**: (array)
+      * **email:** (array of strings) Can be "email_wrong".
+* ##### Restricții: authenticated

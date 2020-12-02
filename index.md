@@ -308,3 +308,147 @@ ___
    * **newAvatarUrl**: (string) new avatar URL for this user. _Present only if success is true!_
    * **newToken**: (string) new JWT token generated for this user. _Present only if success is true!_
 * ##### Restricții: authenticated
+
+
+### `GET` *{url}/account/addresses*
+* ##### Request: _(empty)_
+* ##### Response:
+   ```
+      Array<{
+         id: number;
+         firstName: string;
+         lastName: string;
+         phone: string;
+         country: string;
+         county: string;
+         city: string;
+         address: string;
+         default: boolean;
+      }>
+   ```
+* ##### Restricții: authenticated
+
+
+### `POST` *{url}/account/addresses*
+* Adds a new address for the current user.
+* ##### Request:
+   * **first_name:** required
+   * **last_name:** required
+   * **phone:** required & numeric
+   * **country:** required & a valid country code
+   * **county:** present, can be null
+   * **city:** required
+   * **address:** required
+* ##### Response:
+   * **success:** (boolean)
+   * **errrors**: (array)
+      * **first_name:** (array of strings) Can be "required".
+      * **last_name:** (array of strings) Can be "required".
+      * **phone:** (array of strings) Can be "required" or "numeric".
+      * **country:** (array of strings) Can be "required" or "invalid".
+      * **county:** (array of strings) Can be "present".
+      * **city:** (array of strings) Can be "required".
+      * **address:** (array of strings) Can be "required".
+   * **data**: (object) Present only if `success` is `true`.
+      ```
+      {
+         id: number;
+         firstName: string;
+         lastName: string;
+         phone: string;
+         country: string;
+         county: string;
+         city: string;
+         address: string;
+         default: boolean;
+      }
+      ```
+* ##### Restricții: authenticated
+
+
+### `DELETE` *{url}/account/addresses*
+* ##### Request:
+   * **address_id:** required & exists in `delivery_addresses`, column `id`.
+* ##### Response:
+   * **success:** (boolean)
+   * **errrors**: (array)
+      * **address_id:** (array of strings) Can be "required" or "exists".
+   * **newAddresses**: (array) Present only if `success` is `true`.
+      ```
+         Array<{
+            id: number;
+            firstName: string;
+            lastName: string;
+            phone: string;
+            country: string;
+            county: string;
+            city: string;
+            address: string;
+            default: boolean;
+         }>
+      ```
+* ##### Restricții: authenticated
+
+
+### `PUT` *{url}/account/addresses*
+* Updates an existing address for the current user.
+* ##### Request:
+   * **id:** required & exists in `delivery_addresses`, column `id`.
+   * **first_name:** required
+   * **last_name:** required
+   * **phone:** required & numeric
+   * **country:** required & a valid country code
+   * **county:** present, can be null
+   * **city:** required
+   * **address:** required
+* ##### Response:
+   * **success:** (boolean)
+   * **errrors**: (array)
+      * **id:** (array of strings) Can be "required" or "exists".
+      * **first_name:** (array of strings) Can be "required".
+      * **last_name:** (array of strings) Can be "required".
+      * **phone:** (array of strings) Can be "required" or "numeric".
+      * **country:** (array of strings) Can be "required" or "invalid".
+      * **county:** (array of strings) Can be "present".
+      * **city:** (array of strings) Can be "required".
+      * **address:** (array of strings) Can be "required".
+   * **data**: (object) Present only if `success` is `true`.
+      ```
+      {
+         id: number;
+         firstName: string;
+         lastName: string;
+         phone: string;
+         country: string;
+         county: string;
+         city: string;
+         address: string;
+         default: boolean;
+      }
+      ```
+* ##### Restricții: authenticated
+
+
+### `PATCH` *{url}/account/addresses*
+* Marks an address as default.
+* ##### Request:
+   * **address_id:** required & exists in `delivery_addresses`, column `id`.
+* ##### Response:
+   * **success:** (boolean)
+   * **errrors**: (array)
+      * **address_id:** (array of strings) Can be "required" or "exists".
+   * **newAddresses**: (array) Present only if `success` is `true`.
+      ```
+         Array<{
+            id: number;
+            firstName: string;
+            lastName: string;
+            phone: string;
+            country: string;
+            county: string;
+            city: string;
+            address: string;
+            default: boolean;
+         }>
+      ```
+* ##### Restricții: authenticated

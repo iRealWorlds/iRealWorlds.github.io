@@ -493,6 +493,164 @@ ___
 * ##### Response:
    * **success:** (boolean)
    * **errrors**: (object of arrays)
-   * ~~~**orderId**: (string) The order's id.~~~ ** WILL BE REMOVED **
+   * ~~**orderId**: (string) The order's id.~~ **WILL BE REMOVED**
    * **intent**: (string) The intent generated for confirmation.
    * **error**: (string) The general error. Retry this with an added `paymentIntent` if this value is `authentication_required`.
+   
+   
+### `GET` */orders*
+* ##### Request: _(empty)_
+* ##### Response:
+   ```
+      Array<{
+         id: string;
+         user: null or {
+              id: number;
+              firstName: string;
+              lastName: string;
+              email: string;
+              emailVerifiedAt: string;
+              gender: number;
+              phone: string;
+              birthday: string;
+              avatar: string;
+              admin: boolean;
+              seller: boolean;
+              sellerInfo: null or {
+                 name: string;
+                 slug: string;
+                 image: string;
+                 stripeConnectCompleted: boolean;
+              };
+         };
+         payment: {
+            type: 'cash' or 'card';
+            completed: boolean;
+         };
+         coupon: {
+            code: string or null;
+            value: float;
+         };
+         sections: Array<{
+           seller: {
+              id: number;
+              name: string;
+              slug: string;
+              image: string;
+              phone: string;
+              email: string;
+              address: string;
+              rating: number;
+           };
+           status: number;
+           shipping: number;
+           products: {
+               productId: number;
+               slug: string;
+               name: string;
+               image: string;
+               price: number;
+               quantity: number;
+           };
+         }>
+         date: date;
+         shipping: {
+           firstName: string;
+           lastName: string;
+           phone: string;
+           country: string;
+           county: string;
+           city: string;
+           address: string;
+         };
+         billing: {
+           firstName: string;
+           lastName: string;
+           phone: string;
+           country: string;
+           county: string;
+           city: string;
+           address: string;
+         };
+      }>
+   ```
+* ##### Restricții: authenticated
+   
+### `GET` */orders/{id}*
+* ##### Request: _(empty)_
+* ##### Response:
+   ```
+      {
+         id: string;
+         user: null or {
+              id: number;
+              firstName: string;
+              lastName: string;
+              email: string;
+              emailVerifiedAt: string;
+              gender: number;
+              phone: string;
+              birthday: string;
+              avatar: string;
+              admin: boolean;
+              seller: boolean;
+              sellerInfo: null or {
+                 name: string;
+                 slug: string;
+                 image: string;
+                 stripeConnectCompleted: boolean;
+              };
+         };
+         payment: {
+            type: 'cash' or 'card';
+            completed: boolean;
+         };
+         coupon: {
+            code: string or null;
+            value: float;
+         };
+         sections: Array<{
+           seller: {
+              id: number;
+              name: string;
+              slug: string;
+              image: string;
+              phone: string;
+              email: string;
+              address: string;
+              rating: number;
+           };
+           status: number;
+           shipping: number;
+           products: {
+               productId: number;
+               slug: string;
+               name: string;
+               image: string;
+               price: number;
+               quantity: number;
+           };
+         }>
+         date: date;
+         shipping: {
+           firstName: string;
+           lastName: string;
+           phone: string;
+           country: string;
+           county: string;
+           city: string;
+           address: string;
+         };
+         billing: {
+           firstName: string;
+           lastName: string;
+           phone: string;
+           country: string;
+           county: string;
+           city: string;
+           address: string;
+         };
+      }
+   ```
+* ##### Restricții: authenticated, only if the order has an user associated
+   

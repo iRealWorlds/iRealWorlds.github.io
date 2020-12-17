@@ -452,3 +452,47 @@ ___
          }>
       ```
 * ##### Restricții: authenticated
+
+
+### `POST` */checkout*
+* Inserts an order into the database (first step of checking out).
+* ##### Request:
+   * **cartId:** required
+   * **paymentType:** required, either `cash` or `card`.
+   * **shippingAddress:** required
+     * id: number;
+     * firstName: string;
+     * lastName: string;
+     * phone: string;
+     * country: string;
+     * county: string;
+     * city: string;
+     * address: string;
+   * **billingAddress:** required
+     * id: number;
+     * firstName: string;
+     * lastName: string;
+     * phone: string;
+     * country: string;
+     * county: string;
+     * city: string;
+     * address: string;
+   * **coupon:** string sau `null`
+* ##### Response:
+   * **success:** (boolean)
+   * **errrors**: (object of arrays)
+   * **orderId**: (string) The new order's id.
+   
+### `POST` */checkout/pay*
+* Pay for an order (second step of checking out).
+* ##### Request:
+   * **orderId:** required
+   * **paymentType:** required, either `cash` or `card`.
+   * **paymentMethod:** required
+   * **paymentIntent:** not required; used if the card required further actions (like 3D secure).
+* ##### Response:
+   * **success:** (boolean)
+   * **errrors**: (object of arrays)
+   * ~~~**orderId**: (string) The order's id.~~~ ** WILL BE REMOVED **
+   * **intent**: (string) The intent generated for confirmation.
+   * **error**: (string) The general error. Retry this with an added `paymentIntent` if this value is `authentication_required`.
